@@ -1,0 +1,121 @@
+.blocoLegenda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--linha);
+  container: legenda-grafico / inline-size;
+}
+
+.tituloLegenda {
+  flex: 0 0 auto;
+  padding-top: 0.45rem;
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legenda {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.entrada {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  font-size: var(--fonte-tamanho-sm);
+  font-weight: 500;
+  color: var(--tinta);
+  max-width: 100%;
+  text-wrap: pretty;
+}
+
+.botaoLegenda {
+  appearance: none;
+  font-family: var(--fonte-corpo);
+  text-align: left;
+  cursor: pointer;
+}
+
+.botaoLegenda:hover {
+  border-color: var(--acento);
+}
+
+.botaoLegenda:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.botaoLegendaAtivo {
+  border-color: var(--acento);
+  box-shadow: inset 0 -2px 0 var(--acento);
+}
+
+.itemEmpilhado {
+  composes: item;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.75rem;
+  gap: 0.4rem;
+  padding: 0.5rem 0.7rem;
+}
+
+.marca {
+  width: 0.7rem;
+  height: 0.7rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px var(--linha);
+}
+
+.itemEmpilhado .marca {
+  width: 1.75rem;
+  height: 0.35rem;
+}
+
+/* A legenda responde à largura do card, não à viewport. Em uma grade de duas colunas o card
+   pode ter menos de 38rem mesmo num monitor largo; antes o título consumia a primeira coluna
+   e deixava os itens espremidos em quebras irregulares. */
+@container legenda-grafico (max-width: 38rem) {
+  .tituloLegenda {
+    flex: 0 0 100%;
+    padding-top: 0;
+  }
+
+  .legenda {
+    flex: 0 0 100%;
+  }
+}
+
+@container legenda-grafico (max-width: 22rem) {
+  .legenda {
+    gap: 0.4rem;
+  }
+
+  .item {
+    min-height: 1.85rem;
+    padding: 0.3rem 0.55rem;
+    font-size: var(--fonte-tamanho-xs);
+  }
+}

@@ -1,0 +1,634 @@
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.paginaDashboard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  gap: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem) 1.5rem 3rem;
+}
+
+.paginaDashboard::before {
+  position: absolute;
+  z-index: -1;
+  top: -18rem;
+  right: -16rem;
+  width: 38rem;
+  height: 38rem;
+  border: 1px solid color-mix(in srgb, var(--acento) 18%, transparent);
+  content: "";
+  transform: rotate(28deg);
+  pointer-events: none;
+}
+
+.cabecalhoPagina {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.55fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  min-height: 0;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--linha);
+}
+
+.cabecalhoConteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.leituraRotulo {
+  color: var(--apagado);
+  font-family: var(--fonte-dados);
+  font-size: var(--fonte-tamanho-xs);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.cabecalhoPagina h1 {
+  font-size: clamp(2.25rem, 4vw, 3.35rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+.cabecalhoConteudo > p {
+  max-width: 41rem;
+  margin-top: 0.65rem;
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-sm);
+  line-height: 1.5;
+}
+
+.leituraAtual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  min-height: 0;
+  padding: 0.9rem 1rem 0.9rem 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--acento) 9%, var(--superficie)),
+      var(--superficie) 70%
+    );
+}
+
+.leituraAtual::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--acento);
+  content: "";
+}
+
+.leituraStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+}
+
+.leituraStatus > span {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--faixa-excelente);
+}
+
+.leituraApoio {
+  max-width: 25rem;
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-xs);
+  line-height: 1.5;
+}
+
+.resumo {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(20rem, 3fr);
+  gap: 1.5rem;
+}
+
+.paginaDashboard .resumo {
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 2.2fr);
+  gap: 1rem;
+}
+
+.resumoCartao {
+  border: 1px solid var(--linha);
+  background: var(--superficie);
+  padding: 1.5rem 2rem;
+}
+
+.paginaDashboard .resumoCartao {
+  position: relative;
+  min-width: 0;
+  min-height: 12.5rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  background: var(--superficie);
+}
+
+.paginaDashboard .resumoCartao::before,
+.paginaDashboard .cartao::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  content: "";
+}
+
+.paginaDashboard .resumoCartaoClientes {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--serie-1) 12%, var(--superficie)),
+      var(--superficie) 65%
+    );
+}
+
+.paginaDashboard .resumoCartaoClientes::before {
+  background: var(--serie-1);
+}
+
+.paginaDashboard .resumoCartaoScore::before,
+.paginaDashboard .cartaoFaixa::before {
+  background: linear-gradient(
+    90deg,
+    var(--faixa-ruim),
+    var(--faixa-regular),
+    var(--faixa-bom),
+    var(--faixa-muito-bom),
+    var(--faixa-excelente)
+  );
+}
+
+.resumoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resumoClientes {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+}
+
+.resumoRegua {
+  min-width: 0;
+}
+
+.resumoRotulo {
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.paginaDashboard .resumoRotulo {
+  font-family: var(--fonte-dados);
+  font-size: var(--fonte-tamanho-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.resumoValorClientes {
+  align-self: center;
+  justify-self: center;
+  font-size: clamp(4.5rem, 4rem + 2vw, 5.5rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.paginaDashboard .resumoValorClientes {
+  color: var(--serie-1);
+  font-size: clamp(4.5rem, 7vw, 6rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.075em;
+}
+
+.resumoValorClientesLongo {
+  font-size: clamp(3rem, 2.5rem + 1vw, 3.5rem);
+  letter-spacing: -0.08em;
+}
+
+.paginaDashboard .resumoValorClientesLongo {
+  font-size: clamp(3rem, 5vw, 4rem);
+}
+
+.resumoLegenda {
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-xs);
+}
+
+.paginaDashboard .resumoLegenda {
+  line-height: 1.4;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  border: 1px solid var(--linha);
+  background: var(--superficie);
+  transition: border-color var(--motion-rapida) var(--motion-curva-entrada);
+}
+
+.paginaDashboard .cartao {
+  position: relative;
+  gap: 1.35rem;
+  min-width: 0;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  overflow: hidden;
+  border: 1px solid var(--linha);
+  background: var(--superficie);
+  transition: border-color var(--motion-rapida) var(--motion-curva-entrada);
+}
+
+.paginaDashboard .cartaoSegmento::before {
+  background: var(--serie-3);
+}
+
+.paginaDashboard .cartaoMetrica::before {
+  background: var(--serie-4);
+}
+
+.cartaoSelecionado {
+  border-color: var(--acento);
+}
+
+.titulo {
+  font-size: var(--fonte-tamanho-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.paginaDashboard .titulo {
+  letter-spacing: -0.015em;
+}
+
+.cabecalhoGrafico {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.cabecalhoGrafico > div,
+.cabecalhoCartao > div {
+  min-width: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.indiceGrafico {
+  color: var(--apagado);
+  font-family: var(--fonte-dados);
+  font-size: var(--fonte-tamanho-xs);
+  font-weight: 600;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.resumoGrafico {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-xs);
+}
+
+.resumoGrafico strong {
+  color: var(--tinta);
+  font-size: var(--fonte-tamanho-lg);
+  line-height: 1;
+}
+
+.descricaoGrafico,
+.instrucaoGrafico {
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-xs);
+  line-height: 1.5;
+}
+
+.instrucaoGrafico {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--linha);
+}
+
+.areaGrafico {
+  position: relative;
+  min-width: 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--linha);
+  border-bottom: 1px solid var(--linha);
+  background: transparent;
+  transition: opacity var(--motion-padrao) var(--motion-curva-entrada);
+}
+
+.paginaDashboard .areaGrafico {
+  min-width: 0;
+  padding: 0.75rem 0;
+  background: transparent;
+}
+
+.areaGraficoAtualizando {
+  opacity: 0.48;
+  pointer-events: none;
+}
+
+.indicadorAtualizando {
+  position: absolute;
+  z-index: 1;
+  top: 0.65rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--linha);
+  background: var(--superficie);
+  color: var(--tinta);
+  font-size: var(--fonte-tamanho-xs);
+}
+
+.graficoClicavel :global(.recharts-bar-rectangle),
+.graficoClicavel :global(.recharts-label-list text) {
+  cursor: pointer;
+}
+
+.cabecalhoCartao {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.campoMetrica {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.paginaDashboard .campoMetrica {
+  gap: 0.6rem;
+}
+
+.campoMetrica label {
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-sm);
+}
+
+.campoMetrica select {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--linha);
+  border-radius: 0;
+  background: var(--superficie);
+  color: var(--tinta);
+  font-family: var(--fonte-corpo);
+  font-size: var(--fonte-tamanho-sm);
+}
+
+.paginaDashboard .campoMetrica label {
+  font-family: var(--fonte-dados);
+  font-size: var(--fonte-tamanho-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.paginaDashboard .campoMetrica select {
+  max-width: 16rem;
+  padding: 0.55rem 2rem 0.55rem 0.7rem;
+}
+
+.chipFiltro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  max-width: 100%;
+  padding: 0.45rem 0.55rem 0.45rem 0.7rem;
+  border: 1px solid var(--acento);
+  background: var(--superficie);
+  color: var(--tinta);
+  font-size: var(--fonte-tamanho-xs);
+  line-height: 1.4;
+}
+
+.chipFiltro button {
+  flex: 0 0 auto;
+  min-width: 1.55rem;
+  min-height: 1.55rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--acento);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela th,
+.tabela td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--linha);
+  font-size: var(--fonte-tamanho-sm);
+  text-align: left;
+}
+
+.tabela th {
+  color: var(--apagado);
+  font-weight: normal;
+}
+
+.vazio {
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-sm);
+}
+
+.cartao :global(.recharts-bar-rectangle) rect {
+  transition:
+    fill-opacity var(--motion-padrao) var(--motion-curva-entrada),
+    stroke-opacity var(--motion-rapida) var(--motion-curva-entrada);
+}
+
+.cartao :global(.recharts-cartesian-axis-tick-value) {
+  font-family: var(--fonte-corpo);
+}
+
+.cartao :global(.recharts-bar-background-rectangle) rect {
+  shape-rendering: crispEdges;
+}
+
+.graficoClicavel :global(.recharts-bar-rectangle:active) rect {
+  fill-opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chipFiltro {
+    animation: chipEntra var(--motion-entrada) var(--motion-curva-entrada);
+  }
+
+  .barraSelecionada {
+    animation: barraConfirmaSelecao var(--motion-entrada) var(--motion-curva-entrada);
+  }
+
+  .resumoValorAnimado {
+    animation: valorAtualizado var(--motion-padrao) var(--motion-curva-entrada);
+  }
+
+  .indicadorAtualizando {
+    animation: indicadorAtualizandoEntra var(--motion-rapida) var(--motion-curva-entrada);
+  }
+}
+
+@media (max-width: 58rem) {
+  .cabecalhoPagina {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.7fr);
+    gap: 2rem;
+  }
+
+  .paginaDashboard .resumo {
+    grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 1.3fr);
+  }
+
+  .grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 48rem) {
+  .resumo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 44rem) {
+  .paginaDashboard {
+    gap: 1.5rem;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .paginaDashboard::before {
+    top: -13rem;
+    right: -17rem;
+    width: 29rem;
+    height: 29rem;
+  }
+
+  .cabecalhoPagina,
+  .paginaDashboard .resumo {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecalhoPagina {
+    min-height: 0;
+  }
+
+  .cabecalhoPagina h1 {
+    font-size: clamp(2.45rem, 12vw, 3.4rem);
+  }
+
+  .leituraAtual {
+    min-height: 0;
+  }
+
+  .paginaDashboard .resumoCartao {
+    min-height: 11.5rem;
+  }
+
+  .paginaDashboard .resumoValorClientes {
+    font-size: clamp(4rem, 20vw, 5.5rem);
+  }
+
+  .paginaDashboard .cartao {
+    padding: 1.15rem;
+  }
+
+  .paginaDashboard .areaGrafico {
+    margin-right: -0.25rem;
+    margin-left: -0.25rem;
+    padding: 0.5rem 0;
+  }
+
+  .cabecalhoGrafico {
+    align-items: start;
+  }
+
+  .paginaDashboard .campoMetrica {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .paginaDashboard .campoMetrica select {
+    min-width: 0;
+    flex: 1;
+  }
+}
+
+@keyframes chipEntra {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes barraConfirmaSelecao {
+  from {
+    stroke-opacity: 0;
+  }
+
+  to {
+    stroke-opacity: 1;
+  }
+}
+
+@keyframes valorAtualizado {
+  from {
+    opacity: 0.35;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes indicadorAtualizandoEntra {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

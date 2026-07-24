@@ -1,0 +1,15 @@
+# Ambientes e segredos
+.env
+.env.*
+!.env.example
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+
+# Editor/SO
+.DS_Store
+Thumbs.db

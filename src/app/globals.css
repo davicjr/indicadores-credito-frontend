@@ -1,0 +1,208 @@
+/* Design system derivado via /davi-ux:design-system — ver
+   .claude/docs/standards/design_system.md. Nunca hex solto em componente, sempre var(--token). */
+
+:root,
+[data-theme="light"] {
+  --papel: #f7f7f5;
+  --superficie: #ffffff;
+  --tinta: #1a1d23;
+  --apagado: #6b7280;
+  --acento: #1d4e89;
+  --aviso: #b45309;
+  --critico: #b91c1c;
+  --linha: #d8d9d6;
+
+  --faixa-ruim: #b91c1c;
+  --faixa-regular: #c2662b;
+  --faixa-bom: #a68a1f;
+  --faixa-muito-bom: #4c7a3d;
+  --faixa-excelente: #2d6b4f;
+
+  --serie-1: #1d5a9e;
+  --serie-2: #96731a;
+  --serie-3: #0d8f7a;
+  --serie-4: #7a3b69;
+  --serie-5: #4f962c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #14161a;
+    --superficie: #1c1f26;
+    --tinta: #e8e9ea;
+    --apagado: #9aa0ac;
+    --acento: #6699cc;
+    --aviso: #d99a3d;
+    --critico: #e05252;
+    --linha: #2c3038;
+
+    --faixa-ruim: #e05252;
+    --faixa-regular: #e08a4d;
+    --faixa-bom: #d4b043;
+    --faixa-muito-bom: #7baf64;
+    --faixa-excelente: #4fa184;
+
+    --serie-1: #5b93d6;
+    --serie-2: #b78a2e;
+    --serie-3: #1fae7a;
+    --serie-4: #b366a0;
+    --serie-5: #559933;
+  }
+}
+
+[data-theme="dark"] {
+  --papel: #14161a;
+  --superficie: #1c1f26;
+  --tinta: #e8e9ea;
+  --apagado: #9aa0ac;
+  --acento: #6699cc;
+  --aviso: #d99a3d;
+  --critico: #e05252;
+  --linha: #2c3038;
+
+  --faixa-ruim: #e05252;
+  --faixa-regular: #e08a4d;
+  --faixa-bom: #d4b043;
+  --faixa-muito-bom: #7baf64;
+  --faixa-excelente: #4fa184;
+
+  --serie-1: #5b93d6;
+  --serie-2: #b78a2e;
+  --serie-3: #1fae7a;
+  --serie-4: #b366a0;
+  --serie-5: #559933;
+}
+
+:root {
+  --fonte-tamanho-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8rem);
+  --fonte-tamanho-sm: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
+  --fonte-tamanho-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --fonte-tamanho-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  --fonte-tamanho-xl: clamp(1.375rem, 1.25rem + 0.6vw, 1.625rem);
+  --fonte-tamanho-2xl: clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem);
+  --fonte-tamanho-score: clamp(2.5rem, 2rem + 2.5vw, 3.5rem);
+}
+
+/* Motion — ver design_system.md#Motion. Feedback funcional (opacidade, entrada/saída de
+   elemento), nunca decorativo. Zeradas globalmente pra quem pede prefers-reduced-motion (regra
+   no fim deste arquivo) — nenhum componente precisa tratar a media query por conta própria. */
+:root {
+  --motion-rapida: 120ms;
+  --motion-padrao: 180ms;
+  --motion-entrada: 240ms;
+  --motion-curva-entrada: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-curva-saida: cubic-bezier(0.4, 0, 1, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fonte-corpo);
+  font-size: var(--fonte-tamanho-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+}
+
+/* h1 é sempre o título de página (nunca de card — cards usam h2/.titulo do próprio module),
+   uma vez por tela. Sem isso, cada página herdava o tamanho padrão do navegador (~2rem, acidental,
+   nenhum token do design system) — e Dashboard/Modelo, os dois que setavam um tamanho próprio,
+   reaproveitavam sem querer a MESMA classe do título de card (menor, --fonte-tamanho-lg),
+   ficando notavelmente menor que o h1 das outras telas (achado real: "padronizar... o tamanho
+   do texto"). Um valor só, explícito, pra nunca mais divergir por acidente de qual página seta
+   ou não seta a própria classe.
+*/
+h1 {
+  font-size: var(--fonte-tamanho-2xl);
+}
+
+.fonte-dados {
+  font-family: var(--fonte-dados);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Única referência de largura para todas as páginas logadas. Os wrappers de cada rota cuidam
+   apenas do layout interno e do padding, sem impor um max-width próprio. Login fica de fora de
+   propósito (min-height: 100vh próprio, se centraliza sozinho). */
+.moldura {
+  width: 100%;
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+/* Leitor de tela não interpreta gráfico SVG (Recharts) de forma útil — todo gráfico vem
+   acompanhado de uma tabela equivalente com esta classe, só visível pra tecnologia assistiva. */
+.sr-only {
+  position: absolute;
+  display: block;
+  width: 1px;
+  max-width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+[tabindex] {
+  outline-color: var(--acento);
+}
+
+/* Base de todo <button> sem classe própria — sem isso cada form herdava o botão cinza nativo do
+   navegador (achado real: destoava do resto da "régua de crédito"). Ação primária usa .botao
+   (fundo --acento) declarado localmente em cada CSS module que precisar. */
+button {
+  font-family: var(--fonte-corpo);
+  font-size: var(--fonte-tamanho-base);
+  padding: 0.6rem 1rem;
+  background: var(--superficie);
+  color: var(--tinta);
+  border: 1px solid var(--linha);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--acento);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

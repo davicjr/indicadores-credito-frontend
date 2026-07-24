@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+.git/
+.github/
+.env
+.env.*
+!.env.example
+.claude/
+CLAUDE.md
+docs/

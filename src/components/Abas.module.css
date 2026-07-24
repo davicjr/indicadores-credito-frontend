@@ -1,0 +1,50 @@
+.abasContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.abasLista {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--linha);
+}
+
+.aba,
+.abaAtiva {
+  padding: 0.65rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font: inherit;
+  font-size: var(--fonte-tamanho-sm);
+  color: var(--apagado);
+  cursor: pointer;
+}
+
+/* Cor padrão de aba ativa (sem `cor` por aba) — sem isso, uma lista de abas que não passa
+   `cor` (ex.: detalhe do cliente, que não é dividido por domínio de risco) ficava com o texto
+   em negrito mas sem nenhum indicador visual de qual aba está selecionada (achado real). */
+.abaAtiva {
+  font-weight: 700;
+  color: var(--tinta);
+  border-bottom-color: var(--acento);
+}
+
+.aba:hover {
+  color: var(--tinta);
+}
+
+.abaPainel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem 0.25rem;
+}
+
+/* Sem isso, o atributo [hidden] nativo perde pro `display: flex` da própria classe (mesma
+   especificidade, CSS de autor sempre vence o UA stylesheet) — as abas ficavam todas visíveis,
+   só empilhadas, mesmo com o clique da aba funcionando por baixo (achado real, ver simulador). */
+.abaPainel[hidden] {
+  display: none;
+}

@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [],
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(mv:*)",
+      "Bash(git push:*)",
+      "Bash(kill:*)",
+      "Bash(docker compose down:*)",
+      "Bash(docker rm:*)",
+      "Bash(docker rmi:*)",
+      "Bash(docker volume rm:*)",
+      "Bash(docker system prune:*)"
+    ],
+    "deny": [
+      "Bash(dd:*)",
+      "Bash(shred:*)",
+      "Bash(truncate:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)",
+      "Bash(git rm:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git checkout -- :*)",
+      "Bash(git push --force:*)",
+      "Bash(sudo:*)",
+      "Bash(chmod:*)",
+      "Bash(chown:*)",
+      "Bash(mkfs:*)"
+    ],
+    "defaultMode": "dontAsk"
+  }
+}

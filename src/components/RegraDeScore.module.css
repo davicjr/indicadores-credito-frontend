@@ -1,0 +1,82 @@
+.regua {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faixaRotulo {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: var(--fonte-tamanho-lg);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* A faixa e o número compartilham o mesmo eixo horizontal: assim "Ruim", "Bom" etc. ficam
+   diretamente em cima do valor, acompanhando sua posição na régua. */
+.numeroContainer {
+  position: relative;
+  height: calc(var(--fonte-tamanho-lg) + var(--fonte-tamanho-score) + 0.5rem);
+}
+
+.numero {
+  position: absolute;
+  top: calc(var(--fonte-tamanho-lg) + 0.5rem);
+  transform: translateX(-50%);
+  font-size: var(--fonte-tamanho-score);
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .numeroAnimado {
+    animation: numeroEntra var(--motion-rapida) var(--motion-curva-entrada);
+  }
+}
+
+@keyframes numeroEntra {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.trilho {
+  position: relative;
+  display: flex;
+  height: 0.625rem;
+  border: 1px solid var(--linha);
+}
+
+.segmento {
+  display: block;
+  height: 100%;
+}
+
+.indicador {
+  position: absolute;
+  top: -0.1875rem;
+  width: 2px;
+  height: 1rem;
+  background: var(--tinta);
+  transform: translateX(-1px);
+  transition: left var(--motion-padrao) var(--motion-curva-entrada);
+}
+
+.vazio {
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-sm);
+}
+
+.escala {
+  display: flex;
+  justify-content: space-between;
+  height: 1rem;
+}
+
+.limite {
+  font-size: var(--fonte-tamanho-xs);
+  color: var(--apagado);
+}

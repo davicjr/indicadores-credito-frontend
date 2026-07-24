@@ -1,0 +1,25 @@
+.pequeno {
+  width: 18px;
+  height: 34px;
+}
+
+.grande {
+  width: 42px;
+  height: 76px;
+}
+
+@media (max-width: 44rem) {
+  .grande {
+    width: 30px;
+    height: 56px;
+  }
+}
+
+/* transform-box: fill-box é necessário pra transform-origin center funcionar em relação à
+   própria forma do <rect>, não ao viewport inteiro do SVG (achado real: sem isso, scale/rotate
+   giravam em torno do canto superior esquerdo do SVG, não do centro de cada bloco). */
+.pequeno rect,
+.grande rect {
+  transform-box: fill-box;
+  transform-origin: center;
+}

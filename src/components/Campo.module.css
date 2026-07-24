@@ -1,0 +1,31 @@
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rotuloLinha {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.rotulo {
+  font-size: var(--fonte-tamanho-sm);
+  color: var(--apagado);
+}
+
+.input {
+  font-family: var(--fonte-corpo);
+  font-size: var(--fonte-tamanho-base);
+  padding: 0.5rem 0.625rem;
+  background: var(--superficie);
+  color: var(--tinta);
+  border: 1px solid var(--linha);
+  border-radius: 0;
+}
+
+.erro {
+  font-size: var(--fonte-tamanho-xs);
+  color: var(--critico);
+}

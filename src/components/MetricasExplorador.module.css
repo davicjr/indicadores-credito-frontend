@@ -1,0 +1,19 @@
+.vazio {
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-sm);
+}
+
+.erro {
+  color: var(--critico);
+  font-size: var(--fonte-tamanho-sm);
+  border: 1px solid var(--critico);
+  padding: 0.6rem 0.75rem;
+}
+
+.escala {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--linha);
+  color: var(--apagado);
+  font-size: var(--fonte-tamanho-xs);
+  line-height: 1.5;
+}

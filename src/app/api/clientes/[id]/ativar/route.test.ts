@@ -1,0 +1,17 @@
+import { NextRequest } from "next/server";
+import { describe, expect, it, vi } from "vitest";
+
+const proxyMock = vi.fn();
+vi.mock("@/lib/proxy-clientes", () => ({ proxyParaClientes: (...args: unknown[]) => proxyMock(...args) }));
+
+describe("PATCH /api/clientes/[id]/ativar", () => {
+  it("proxya ativação de cliente pra -clientes com o id da rota, sem corpo", async () => {
+    proxyMock.mockResolvedValue(new Response(null, { status: 200 }));
+    const { PATCH } = await import("./route");
+
+    const request = new NextRequest("http://localhost:3000/api/clientes/c1/ativar", { method: "PATCH" });
+    await PATCH(request, { params: Promise.resolve({ id: "c1" }) });
+
+    expect(proxyMock).toHaveBeenCalledWith("/clientes/c1/ativar", "PATCH");
+  });
+});

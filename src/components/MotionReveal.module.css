@@ -1,0 +1,88 @@
+.reveal,
+.stagger {
+  --motion-reveal-delay: 0ms;
+}
+
+.delay1 {
+  --motion-reveal-delay: 40ms;
+}
+
+.delay2 {
+  --motion-reveal-delay: 80ms;
+}
+
+.delay3 {
+  --motion-reveal-delay: 120ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation-duration: var(--motion-entrada);
+    animation-delay: var(--motion-reveal-delay);
+    animation-timing-function: var(--motion-curva-entrada);
+    animation-fill-mode: backwards;
+  }
+
+  .rise {
+    animation-name: revealRise;
+  }
+
+  .fade {
+    animation-name: revealFade;
+  }
+
+  .emphasis {
+    animation-name: revealEmphasis;
+  }
+
+  .stagger > * {
+    animation: revealRise var(--motion-entrada) var(--motion-curva-entrada) backwards;
+    animation-delay: var(--motion-reveal-delay);
+  }
+
+  .stagger > :nth-child(2) {
+    animation-delay: calc(var(--motion-reveal-delay) + 40ms);
+  }
+
+  .stagger > :nth-child(3) {
+    animation-delay: calc(var(--motion-reveal-delay) + 80ms);
+  }
+
+  .stagger > :nth-child(n + 4) {
+    animation-delay: calc(var(--motion-reveal-delay) + 120ms);
+  }
+}
+
+@keyframes revealRise {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes revealEmphasis {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

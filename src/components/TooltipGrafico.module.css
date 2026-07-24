@@ -1,0 +1,30 @@
+.tooltip {
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-left: 3px solid var(--acento);
+  padding: 0.6rem 0.75rem;
+  font-size: var(--fonte-tamanho-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 10rem;
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--tinta);
+}
+
+.linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--apagado);
+}
+
+.valor {
+  font-family: var(--fonte-dados);
+  font-variant-numeric: tabular-nums;
+  color: var(--tinta);
+}
