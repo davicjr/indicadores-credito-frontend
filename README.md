@@ -2,6 +2,12 @@
 
 # Índice Real — dashboard e simulador de score de crédito
 
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
+![Vitest](https://img.shields.io/badge/testes-287%20passing-6E9F18?logo=vitest&logoColor=white)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 **Índice Real** é o nome do produto (marca exibida na UI); `indicadores-credito` é o nome técnico
 do projeto e o prefixo dos 4 repositórios — ver
 [indicadores-credito-infra](https://github.com/davicjr/indicadores-credito-infra) pra visão geral
@@ -9,12 +15,6 @@ do sistema completo.
 
 Frontend do projeto Indicadores de Crédito: dashboard da carteira, cadastro de clientes e
 simulador de score em tempo real, em Next.js.
-
-![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
-![Vitest](https://img.shields.io/badge/testes-287%20passing-6E9F18?logo=vitest&logoColor=white)
-![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Como funciona
 
