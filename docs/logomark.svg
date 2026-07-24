@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" role="img" aria-label="Índice Real">
+  <style>
+    .tinta { fill: #1A1D23; }
+    .acento { fill: #1D4E89; }
+    .apagado { fill: #6B7280; }
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+    @media (prefers-color-scheme: dark) {
+      .tinta { fill: #E8E9EA; }
+      .acento { fill: #6699CC; }
+      .apagado { fill: #9AA0AC; }
+    }
+  </style>
+
+  <!-- logomark: base, haste e marcador — mesma geometria de src/components/Logomark.tsx,
+       estado de repouso (sem a animação de entrada) -->
+  <g transform="translate(14, 6) scale(0.95)">
+    <rect class="apagado" x="10" y="72" width="20" height="4" />
+    <rect class="tinta" x="16" y="30" width="8" height="40" />
+    <rect class="acento" x="14" y="8" width="12" height="12" />
+  </g>
+
+  <!-- wordmark: "ÍNDICE" em tinta (700), "REAL" em acento (500) -->
+  <text x="86" y="60" font-size="34" font-weight="700" class="tinta">ÍNDICE</text>
+  <text x="222" y="60" font-size="34" font-weight="500" class="acento">REAL</text>
+</svg>
